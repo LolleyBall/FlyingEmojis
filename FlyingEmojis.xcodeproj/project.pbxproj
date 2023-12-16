@@ -11,6 +11,7 @@
 		B4B317BA2B2DBD03005FA6C4 /* ParticleAnimationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4B317B92B2DBD03005FA6C4 /* ParticleAnimationView.swift */; };
 		B4B317BE2B2DBD47005FA6C4 /* String+toImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4B317BD2B2DBD47005FA6C4 /* String+toImage.swift */; };
 		B4B317C02B2DBD5A005FA6C4 /* UIImage+averageColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4B317BF2B2DBD5A005FA6C4 /* UIImage+averageColor.swift */; };
+		B4B317C32B2DC3D8005FA6C4 /* GradientLayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4B317C22B2DC3D8005FA6C4 /* GradientLayer.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -19,6 +20,7 @@
 		B4B317B92B2DBD03005FA6C4 /* ParticleAnimationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParticleAnimationView.swift; sourceTree = "<group>"; };
 		B4B317BD2B2DBD47005FA6C4 /* String+toImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+toImage.swift"; sourceTree = "<group>"; };
 		B4B317BF2B2DBD5A005FA6C4 /* UIImage+averageColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+averageColor.swift"; sourceTree = "<group>"; };
+		B4B317C22B2DC3D8005FA6C4 /* GradientLayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GradientLayer.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -51,6 +53,7 @@
 		B4B317B02B2DBB8B005FA6C4 /* FlyingEmojis */ = {
 			isa = PBXGroup;
 			children = (
+				B4B317C12B2DC3CA005FA6C4 /* GradientLayer */,
 				B4B317BB2B2DBD2D005FA6C4 /* Extensions */,
 				B4B317B82B2DBCF0005FA6C4 /* ParticleAnimationView */,
 				B4B317B12B2DBB8B005FA6C4 /* FlyingEmojis.h */,
@@ -73,6 +76,14 @@
 				B4B317BF2B2DBD5A005FA6C4 /* UIImage+averageColor.swift */,
 			);
 			path = Extensions;
+			sourceTree = "<group>";
+		};
+		B4B317C12B2DC3CA005FA6C4 /* GradientLayer */ = {
+			isa = PBXGroup;
+			children = (
+				B4B317C22B2DC3D8005FA6C4 /* GradientLayer.swift */,
+			);
+			path = GradientLayer;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -156,6 +167,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				B4B317BA2B2DBD03005FA6C4 /* ParticleAnimationView.swift in Sources */,
+				B4B317C32B2DC3D8005FA6C4 /* GradientLayer.swift in Sources */,
 				B4B317C02B2DBD5A005FA6C4 /* UIImage+averageColor.swift in Sources */,
 				B4B317BE2B2DBD47005FA6C4 /* String+toImage.swift in Sources */,
 			);

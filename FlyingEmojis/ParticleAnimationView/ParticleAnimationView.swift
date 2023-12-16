@@ -2,6 +2,15 @@ import UIKit
 
 public class ParticleAnimationView: UIView {
     private let particleEmitter = CAEmitterLayer()
+    private let gradientLayer: CAGradientLayer = {
+        let gradientLayer = CAGradientLayer()
+        gradientLayer.colors = [
+            UIColor.white.cgColor,
+            UIColor.white.cgColor
+        ]
+        gradientLayer.locations = [0.0, 1.0]
+        return gradientLayer
+    }()
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -13,11 +22,23 @@ public class ParticleAnimationView: UIView {
         setupUI()
     }
     
+    override public func layoutSubviews() {
+        super.layoutSubviews()
+
+        layer.addSublayer(gradientLayer)
+        gradientLayer.frame = frame
+        gradientLayer.bounds = bounds
+    }
+    
     func update(with image: UIImage) {
         let near = makeEmmiterCell(image: image, velocity: 300, scale: 0.7, longitude: .pi)
         let middle = makeEmmiterCell(image: image, velocity: 200, scale: 0.5)
         let far = makeEmmiterCell(image: image, velocity: 100, scale: 0.3)
         particleEmitter.emitterCells = [far, middle, near]
+        gradientLayer.colors = [
+            UIColor.white.cgColor,
+            image.averageColor!.cgColor
+        ]
     }
 
     func update(with theme: Theme) {
@@ -25,6 +46,10 @@ public class ParticleAnimationView: UIView {
         let middle = makeEmmiterCell(image: theme.secondaryImage, velocity: 200, scale: 0.5)
         let far = makeEmmiterCell(image: theme.tertiaryImage, velocity: 100, scale: 0.3)
         particleEmitter.emitterCells = [far, middle, near]
+        gradientLayer.colors = [
+            UIColor.white.cgColor,
+            theme.mainImage.averageColor!.cgColor
+        ]
     }
 
     func updateBounds() {
