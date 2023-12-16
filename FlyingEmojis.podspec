@@ -6,16 +6,24 @@
 #  To see working Podspecs in the CocoaPods repo see https://github.com/CocoaPods/Specs/
 #
 
-Pod::Spec.new do |s|
-  s.name                  = "FlyingEmojis"
-  s.version               = "0.0.1"
-  s.summary               = "Example of creating own pod."
-  s.homepage              = "https://github.com/rep-co/EmojiNumber"
-  s.license               = 'MIT'
-  s.author                = { "Username" => "mexicano933@gmail.com" }
-  s.platform              = :ios, '13.0'
-  s.source                = { :git => "https://github.com/LolleyBall/FlyingEmojis.git", :tag => s.version.to_s }
-  s.source_files          = 'FlyingEmojis/*.{h,m,swift}'
-  s.public_header_files   = 'FlyingEmojis/*.h'
-  s.requires_arc          = true
+Pod::Spec.new do |spec|
+
+  spec.name         = "FlyingEmojis"
+  spec.version      = "0.0.1"
+  spec.summary      = "A CocoaPods library written in Swift"
+
+  spec.description  = <<-DESC
+This CocoaPods library helps you perform calculation.
+                   DESC
+
+  spec.homepage     = "https://github.com/rep-co/EmojiNumber"
+  spec.license      = { :type => "MIT", :file => "LICENSE" }
+  spec.author       = { "LolleyBall" => "mexicano933@gmail.com" }
+
+  spec.ios.deployment_target = "12.1"
+  spec.swift_version = "4.2"
+
+  spec.source        = { :git => "https://github.com/LolleyBall/FlyingEmojis.git", :tag => "0.0.1" }
+  spec.source_files  = "FlyingEmojis/**/*.{h,m,swift}"
+
 end
