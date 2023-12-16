@@ -1,6 +1,8 @@
 import UIKit
 
 public class ParticleAnimationView: UIView {
+    private var colorIndex: Int = 0
+    private var gradientColorSet: [[CGColor]] = []
     private let particleEmitter = CAEmitterLayer()
     private let gradientLayer: CAGradientLayer = {
         let gradientLayer = CAGradientLayer()
@@ -20,14 +22,6 @@ public class ParticleAnimationView: UIView {
     required init?(coder: NSCoder) {
         super.init(coder: coder)
         setupUI()
-    }
-    
-    override public func layoutSubviews() {
-        super.layoutSubviews()
-
-        layer.addSublayer(gradientLayer)
-        gradientLayer.frame = frame
-        gradientLayer.bounds = bounds
     }
     
     func update(with image: UIImage) {
@@ -61,6 +55,13 @@ public class ParticleAnimationView: UIView {
     }
 
     func lavaLampAnimation() {
+        gradientColorSet = [
+            [CGColor.lavaGradientColor1, CGColor.lavaGradientColor2],
+            [CGColor.lavaGradientColor2, CGColor.lavaGradientColor3],
+            [CGColor.lavaGradientColor3, CGColor.lavaGradientColor1]
+        ]
+        gradientLayer.colors = gradientColorSet
+
         let firstLave = "🔥".toImage()
         let secondLava = "🩸".toImage()
         let thirdLava = "💛".toImage()
@@ -81,18 +82,25 @@ public class ParticleAnimationView: UIView {
 
         addSubview(blurEffectView)
     }
+}
 
-    private func setupUI() {
+// MARK: - Private Methods -
+private extension ParticleAnimationView {
+    func setupUI() {
         particleEmitter.emitterPosition = CGPoint(x: bounds.maxX, y: -100)
         particleEmitter.emitterShape = .line
         particleEmitter.emitterSize = CGSize(width: bounds.size.height, height: 1)
         particleEmitter.renderMode = .backToFront
         particleEmitter.birthRate = 1
-        
+
+        gradientLayer.frame = frame
+        gradientLayer.bounds = bounds
+
+        layer.addSublayer(gradientLayer)
         layer.addSublayer(particleEmitter)
     }
 
-    private func makeEmmiterCell(image: UIImage,
+    func makeEmmiterCell(image: UIImage,
                                  velocity: CGFloat,
                                  scale: CGFloat,
                                  longitude: CGFloat = 10)-> CAEmitterCell {
@@ -108,6 +116,32 @@ public class ParticleAnimationView: UIView {
         cell.contents = image.cgImage
         return cell
     }
+
+    func animateGradient() {
+        gradientLayer.colors = gradientColorSet[colorIndex]
+        let gradientAnimation = CABasicAnimation(keyPath: "colors")
+        gradientAnimation.delegate = self
+        gradientAnimation.duration = 2
+
+        updateColorIndex()
+        gradientAnimation.toValue = gradientColorSet[colorIndex]
+        gradientAnimation.fillMode = .forwards
+        gradientAnimation.isRemovedOnCompletion = false
+        gradientLayer.add(gradientAnimation, forKey: "colors")
+    }
+}
+
+// MARK: - CAAnimationDelegate
+extension ParticleAnimationView: CAAnimationDelegate {
+    public func animationDidStop(_ anim: CAAnimation, finished flag: Bool) {
+        if flag {
+            animateGradient()
+        }
+    }
+
+    func updateColorIndex() {
+        colorIndex = colorIndex < gradientColorSet.count - 1 ? colorIndex + 1 : 0
+    }
 }
 
 extension ParticleAnimationView {
@@ -116,4 +150,11 @@ extension ParticleAnimationView {
         let secondaryImage: UIImage
         let tertiaryImage: UIImage
     }
+}
+
+// MARK: - Colors -
+private extension CGColor {
+    static let lavaGradientColor1 = UIColor(red: 255/255, green: 215/255, blue: 0, alpha: 1.00).cgColor
+    static let lavaGradientColor2 = UIColor(red: 255/255, green: 165/255, blue: 0, alpha: 1.00).cgColor
+    static let lavaGradientColor3 = UIColor(red: 255/255, green: 69/255, blue: 0, alpha: 1.00).cgColor
 }
