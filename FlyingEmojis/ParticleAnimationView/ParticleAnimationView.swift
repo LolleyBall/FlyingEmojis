@@ -52,6 +52,8 @@ public class ParticleAnimationView: UIView {
         particleEmitter.emitterSize = CGSize(width: bounds.size.height, height: 1)
         particleEmitter.renderMode = .backToFront
         particleEmitter.birthRate = 1
+        gradientLayer.frame = frame
+        gradientLayer.bounds = bounds
     }
 
     public func lavaLampAnimation() {
