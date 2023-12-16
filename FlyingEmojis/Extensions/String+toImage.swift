@@ -1,7 +1,7 @@
 import UIKit
 
-extension String {
-    func toImage() -> UIImage {
+public extension String {
+    public func toImage() -> UIImage {
         let size = CGSize(width: 70, height: 70)
         UIGraphicsBeginImageContextWithOptions(size, false, 0)
         UIColor.clear.set()

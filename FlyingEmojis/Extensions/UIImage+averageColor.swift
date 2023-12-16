@@ -1,7 +1,7 @@
 import UIKit
 
-extension UIImage {
-    var averageColor: UIColor? {
+public extension UIImage {
+    public var averageColor: UIColor? {
         guard let inputImage = CIImage(image: self) else { return nil }
         let extentVector = CIVector(x: inputImage.extent.origin.x, y: inputImage.extent.origin.y, z: inputImage.extent.size.width, w: inputImage.extent.size.height)
 
