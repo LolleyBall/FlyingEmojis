@@ -144,7 +144,7 @@ extension ParticleAnimationView: CAAnimationDelegate {
     }
 }
 
-extension ParticleAnimationView {
+public extension ParticleAnimationView {
     struct Theme {
         let mainImage: UIImage
         let secondaryImage: UIImage
