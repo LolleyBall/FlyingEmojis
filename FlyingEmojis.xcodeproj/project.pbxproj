@@ -8,11 +8,17 @@
 
 /* Begin PBXBuildFile section */
 		B4B317B22B2DBB8B005FA6C4 /* FlyingEmojis.h in Headers */ = {isa = PBXBuildFile; fileRef = B4B317B12B2DBB8B005FA6C4 /* FlyingEmojis.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		B4B317BA2B2DBD03005FA6C4 /* ParticleAnimationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4B317B92B2DBD03005FA6C4 /* ParticleAnimationView.swift */; };
+		B4B317BE2B2DBD47005FA6C4 /* String+toImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4B317BD2B2DBD47005FA6C4 /* String+toImage.swift */; };
+		B4B317C02B2DBD5A005FA6C4 /* UIImage+averageColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4B317BF2B2DBD5A005FA6C4 /* UIImage+averageColor.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		B4B317AE2B2DBB8B005FA6C4 /* FlyingEmojis.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = FlyingEmojis.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B4B317B12B2DBB8B005FA6C4 /* FlyingEmojis.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FlyingEmojis.h; sourceTree = "<group>"; };
+		B4B317B92B2DBD03005FA6C4 /* ParticleAnimationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParticleAnimationView.swift; sourceTree = "<group>"; };
+		B4B317BD2B2DBD47005FA6C4 /* String+toImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+toImage.swift"; sourceTree = "<group>"; };
+		B4B317BF2B2DBD5A005FA6C4 /* UIImage+averageColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+averageColor.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -45,9 +51,28 @@
 		B4B317B02B2DBB8B005FA6C4 /* FlyingEmojis */ = {
 			isa = PBXGroup;
 			children = (
+				B4B317BB2B2DBD2D005FA6C4 /* Extensions */,
+				B4B317B82B2DBCF0005FA6C4 /* ParticleAnimationView */,
 				B4B317B12B2DBB8B005FA6C4 /* FlyingEmojis.h */,
 			);
 			path = FlyingEmojis;
+			sourceTree = "<group>";
+		};
+		B4B317B82B2DBCF0005FA6C4 /* ParticleAnimationView */ = {
+			isa = PBXGroup;
+			children = (
+				B4B317B92B2DBD03005FA6C4 /* ParticleAnimationView.swift */,
+			);
+			path = ParticleAnimationView;
+			sourceTree = "<group>";
+		};
+		B4B317BB2B2DBD2D005FA6C4 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				B4B317BD2B2DBD47005FA6C4 /* String+toImage.swift */,
+				B4B317BF2B2DBD5A005FA6C4 /* UIImage+averageColor.swift */,
+			);
+			path = Extensions;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -93,6 +118,7 @@
 				TargetAttributes = {
 					B4B317AD2B2DBB8B005FA6C4 = {
 						CreatedOnToolsVersion = 14.2;
+						LastSwiftMigration = 1420;
 					};
 				};
 			};
@@ -129,6 +155,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B4B317BA2B2DBD03005FA6C4 /* ParticleAnimationView.swift in Sources */,
+				B4B317C02B2DBD5A005FA6C4 /* UIImage+averageColor.swift in Sources */,
+				B4B317BE2B2DBD47005FA6C4 /* String+toImage.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -258,6 +287,7 @@
 		B4B317B62B2DBB8B005FA6C4 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEFINES_MODULE = YES;
@@ -278,6 +308,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;
 				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -286,6 +317,7 @@
 		B4B317B72B2DBB8B005FA6C4 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEFINES_MODULE = YES;
