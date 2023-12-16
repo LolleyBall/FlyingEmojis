@@ -24,7 +24,7 @@ public class ParticleAnimationView: UIView {
         setupUI()
     }
     
-    func update(with image: UIImage) {
+    public func update(with image: UIImage) {
         let near = makeEmmiterCell(image: image, velocity: 300, scale: 0.7, longitude: .pi)
         let middle = makeEmmiterCell(image: image, velocity: 200, scale: 0.5)
         let far = makeEmmiterCell(image: image, velocity: 100, scale: 0.3)
@@ -35,7 +35,7 @@ public class ParticleAnimationView: UIView {
         ]
     }
 
-    func update(with theme: Theme) {
+    public func update(with theme: Theme) {
         let near = makeEmmiterCell(image: theme.mainImage, velocity: 300, scale: 0.7, longitude: .pi)
         let middle = makeEmmiterCell(image: theme.secondaryImage, velocity: 200, scale: 0.5)
         let far = makeEmmiterCell(image: theme.tertiaryImage, velocity: 100, scale: 0.3)
@@ -46,7 +46,7 @@ public class ParticleAnimationView: UIView {
         ]
     }
 
-    func updateBounds() {
+    public func updateBounds() {
         particleEmitter.emitterPosition = CGPoint(x: bounds.maxX, y: -100)
         particleEmitter.emitterShape = .line
         particleEmitter.emitterSize = CGSize(width: bounds.size.height, height: 1)
@@ -54,7 +54,7 @@ public class ParticleAnimationView: UIView {
         particleEmitter.birthRate = 1
     }
 
-    func lavaLampAnimation() {
+    public func lavaLampAnimation() {
         gradientColorSet = [
             [CGColor.lavaGradientColor1, CGColor.lavaGradientColor2],
             [CGColor.lavaGradientColor2, CGColor.lavaGradientColor3],
@@ -146,6 +146,12 @@ extension ParticleAnimationView: CAAnimationDelegate {
 
 public extension ParticleAnimationView {
     struct Theme {
+        public init(mainImage: UIImage, secondaryImage: UIImage, tertiaryImage: UIImage) {
+            self.mainImage = mainImage
+            self.secondaryImage = secondaryImage
+            self.tertiaryImage = tertiaryImage
+        }
+
         let mainImage: UIImage
         let secondaryImage: UIImage
         let tertiaryImage: UIImage
